@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # script that shows all processes for all users including processes without TTY
+# shellcheck disable=SC2009
 ps -auxf | grep bash
 
