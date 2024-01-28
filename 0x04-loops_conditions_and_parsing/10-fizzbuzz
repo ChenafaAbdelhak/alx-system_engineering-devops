@@ -2,23 +2,17 @@
 # fizzbuz
 for i in {1..100}
 do
-	if [ $((i % 3)) -eq 0 ] || [ $((i % 5)) -eq 0 ]
-	then
-		if [ $((i % 3)) -eq 0 ]
-		then
-			echo "Fizz"
-		fi
-
-		if [ $((i % 5)) -eq 0 ]
-		then
-			echo "Buzz"
-		fi
-
 		if [ $((i % 3)) -eq 0 ] && [ $((i % 5)) -eq 0 ]
 		then
 			echo "FizzBuzz"
+
+		elif [ $((i % 5)) -eq 0 ]
+		then
+			echo "Buzz"
+		elif [ $((i % 3)) -eq 0 ]
+		then
+			echo "Fizz"
+		else
+			echo "$i"
 		fi
-	else
-		echo "$i"
-	fi
 done
