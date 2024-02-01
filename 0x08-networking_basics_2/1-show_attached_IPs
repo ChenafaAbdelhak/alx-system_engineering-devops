@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays all active IPv4 address on the machine
+ifconfig | grep -Eo "inet (addr:)?([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}" | cut -d ' ' -f 2
