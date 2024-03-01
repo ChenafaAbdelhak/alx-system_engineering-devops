@@ -6,4 +6,4 @@ suso cp /etc/hosts ~/hosts.bac
 printf "127.0.0.2\tlocalhost\n" > ~/hosts.new
 printf "8.8.8.8\tfacebook.com\n" >> ~/hosts.new
 
-cp -f ~/hosts /etc/hosts
+cp -f ~/hosts.new /etc/hosts
