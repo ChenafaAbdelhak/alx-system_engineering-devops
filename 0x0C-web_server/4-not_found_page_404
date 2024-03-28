@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Install nginx ang configure to return "Hello World!"
+if ! [ -x "$(command -v nginx)" ]; then
+	sudo apt-get -y update
+	sudo apt-get -y install nginx
+fi
+
+sudo echo "Hello World!" | sudo tee /var/www/html/index.html
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+if ! grep -q "error_page 404 /404.html;" /etc/nginx/sites-available/default; then
+  sed -i '/server_name _;/a \
+          error_page 404 /404.html;\n \
+          location = /404.html {\n \
+              root /var/www/html;\n \
+          }\n' /etc/nginx/sites-available/default
+
+  service nginx restart
+else
+  service nginx restart
+fi
