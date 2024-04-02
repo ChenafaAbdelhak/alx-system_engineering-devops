@@ -35,7 +35,7 @@ local server_configuration="
 
   frontend abdelhak-frontend
       bind *:80
-      default_backend FT43-tech-servers
+      default_backend abdelhak-servers
 
   backend abdelhak-servers-backend
       balance roundrobin
