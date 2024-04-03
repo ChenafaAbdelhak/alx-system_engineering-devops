@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # script that Configure Nginx so that its HTTP response contains a custom header
 
+if ! [ -x "$(command -v nginx)" ]; then
+  apt-get update
+  apt-get install -y nginx
+fi
+
 sudo cp /etc/nginx/sites_enabled/default nginx_sites_enables_default-backup
 
 sudo sed -i '/server_name _;/a
