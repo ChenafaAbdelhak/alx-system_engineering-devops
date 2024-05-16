@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Script: 5-mysql_backup
+
+check_args() {
+	if [[ $# -ne 1 ]]; then
+		echo "Usage: $0 <root_password>"
+		exit 1
+	fi
+}
+
+perform_backup() {
+    mysqldump -u root -p"$1" --opt --all-databases > backup.sql
+}
+
+compress_backup() {
+    local timestamp=$(date +%d-%m-%Y)
+    tar -zcf "backup_$timestamp.tar.gz" backup.sql
+}
+
+# Main function
+main() {
+    check_args "$@"
+
+    perform_backup "$1"
+
+    compress_backup
+
+    echo "MySQL backup completed successfully!"
+}
+
+main "$@"
