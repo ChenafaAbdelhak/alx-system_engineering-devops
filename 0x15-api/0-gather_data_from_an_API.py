@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import requests
-import sys
 
 """
 Script to fetch and display the progress of a specific employee's tasks
 from a JSONPlaceholder API.
 """
+import requests
+import sys
 
 url = "https://jsonplaceholder.typicode.com"
 
