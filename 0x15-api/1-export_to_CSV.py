@@ -52,6 +52,7 @@ def export_to_csv(emp_id):
                 }
             )
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python3 1-export_to_CSV.py <EMPLOYEE_ID>")
