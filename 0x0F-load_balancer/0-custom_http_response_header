@@ -8,7 +8,7 @@ fi
 
 sudo cp /etc/nginx/sites_enabled/default nginx_sites_enables_default-backup
 
-sudo sed -i '/server_name _;/a
+sudo sed -i '/server_name _;/a \
 	add_header X-Served-By \$hostname;\n' /etc/nginx/sites-available/default
 
 service nginx restart
