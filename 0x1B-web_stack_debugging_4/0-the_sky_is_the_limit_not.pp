@@ -7,9 +7,9 @@ exec { 'update_ulimit':
 }
 
 exec { 'restart_nginx':
-  provider => shell,
-  command  => "sudo service nginx restart",
-  subscribe=> Service['nginx'],
+  provider  => shell,
+  command   => 'sudo service nginx restart',
+  subscribe => Service['nginx'],
 }
 
 service { 'nginx':
