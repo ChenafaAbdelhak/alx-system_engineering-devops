@@ -3,7 +3,7 @@
 exec { 'update_ulimit':
   provider => shell,
   command  => "sudo sed -i 's/^ULIMIT=.*/ULIMIT=-n 4096/' /etc/default/nginx",
-  before   =>  exec['restart_nginx'],
+  before   =>  Exec['restart_nginx'],
 }
 
 exec { 'restart_nginx':
